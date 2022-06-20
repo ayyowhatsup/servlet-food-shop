@@ -45,24 +45,26 @@ public class KiemTraURLFilter extends HttpFilter {
 		
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
-		Cookie[] cookies = req.getCookies();
-		HttpSession session = req.getSession();
-		if(cookies != null) {
-			for(int i =0;i < cookies.length;i++) {
-				Cookie c = cookies[i];
-				if(c.getValue().equals(session.getId()) && c.getMaxAge()<0) {
-						cookies[i].setMaxAge(24*60*60*30);
-						resp.addCookie(cookies[i]);
-						break;
-				}
-			}
-		}
 		
 		String url = req.getRequestURI();
 		url = url.replace(req.getContextPath(), "");
 		if (url.endsWith("/")) {
 			while (url.endsWith("/")) {
 				url = url.substring(0, url.length() - 1);
+			}
+			if(!url.startsWith("/api")) {
+				Cookie[] cookies = req.getCookies();
+				HttpSession session = req.getSession();
+				if(cookies != null) {
+					for(int i =0;i < cookies.length;i++) {
+						Cookie c = cookies[i];
+						if(c.getValue().equals(session.getId()) && c.getMaxAge()<0) {
+								cookies[i].setMaxAge(24*60*60*30);
+								resp.addCookie(cookies[i]);
+								break;
+						}
+					}
+				}
 			}
 			request.getRequestDispatcher(url).forward(req, resp);
 		}

@@ -148,5 +148,29 @@ public void suaTrangThai(DonHang t) {
 		return arr;
 		
 	}
+	
+	public List<DonHang> layDonHangTheoMaNguoiDung(int maNguoiDung){
+		//Có lấy các sản phẩm trong đơn hàng
+		
+		try {
+			ArrayList<DonHang> arr = new ArrayList<DonHang>();
+			String sql = "Select * from DonHang where maNguoiDung = ?";
+			PreparedStatement pps = conn.prepareStatement(sql);
+			pps.setInt(1, maNguoiDung);
+			ResultSet rs =  pps.executeQuery();
+			while(rs.next()) {
+				DonHang dh = new DonHang(rs);
+                dh.setKhachHang(new NguoiDungDAO(conn).layQuaMa(maNguoiDung));
+                dh.setDanhSachVatPham(new DonHangChiTietDAO(conn).layDanhSachVatPhamHoaDonTheoMa(dh.getMaDonHang()));
+                arr.add(dh);
+			} 
+			return arr;
+		} catch (Exception e) {
+			
+		}
+		
+		return null;
+		
+	}
 
 }

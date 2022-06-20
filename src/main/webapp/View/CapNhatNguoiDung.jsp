@@ -11,7 +11,6 @@
 </head>
 <body>
 <jsp:include page="DauTrangQuanTri.jsp"></jsp:include>
-	<jsp:include page="DauTrang.jsp"></jsp:include>
 	<form action="capnhatnguoidung" method="post">
 		<c:set var="c" value="${requestScope.nguoidung}" />
 		<label>Mã người dùng:</label> <input type="text" name="maNguoiDung"

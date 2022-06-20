@@ -48,10 +48,20 @@ public class TheLoaiRestServlet extends HttpServlet {
 			String json = gson.toJson(danhSachTheLoai);
 			pr.println(json);
 		} else {
-			int maTheLoai = Integer.parseInt(str.substring(1));
-			TheLoai tl = new TheLoaiDAO().layQuaMa(maTheLoai);
-			String json = gson.toJson(tl);
-			pr.println(json);
+			try {
+				int maTheLoai = Integer.parseInt(str.substring(1));
+
+				TheLoai tl = new TheLoaiDAO().layQuaMa(maTheLoai);
+				if (tl == null) {
+					response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+				} else {
+					String json = gson.toJson(tl);
+					pr.println(json);
+				}
+			} catch (Exception e) {
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			}
+
 		}
 
 		pr.close();
@@ -91,45 +101,61 @@ public class TheLoaiRestServlet extends HttpServlet {
 						.toJson(new TheLoaiDAO().layQuaMa(maTheLoai)));
 
 	}
-	
+
 	@Override
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String str = req.getPathInfo();
-		int maTheLoai = Integer.parseInt(str.substring(1));
-		TheLoai tl = new TheLoai();
-		tl.setMaTheLoai(maTheLoai);
-		resp.setContentType("application/json");
-		new TheLoaiDAO().xoa(tl);
-		resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+		try {
+			int maTheLoai = Integer.parseInt(str.substring(1));
+			TheLoai tl = new TheLoai();
+			tl.setMaTheLoai(maTheLoai);
+			TheLoai tl1 = new TheLoaiDAO().layQuaMa(maTheLoai);
+			if (tl1 == null) {
+				resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			} else {
+				resp.setContentType("application/json");
+				new TheLoaiDAO().xoa(tl);
+				resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+
+		} catch (Exception e) {
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
+
 	}
-	
+
 	@Override
 	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String str = req.getPathInfo();
-		int maTheLoai = Integer.parseInt(str.substring(1));
+		try {
+			int maTheLoai = Integer.parseInt(str.substring(1));
 
-		resp.setContentType("application/json");
-		Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
-				.addDeserializationExclusionStrategy(new ExclusionStrategy() {
+			resp.setContentType("application/json");
+			Gson gson = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+					.addDeserializationExclusionStrategy(new ExclusionStrategy() {
 
-					@Override
-					public boolean shouldSkipField(FieldAttributes arg0) {
-						if (arg0.getName().toLowerCase().startsWith("ma")) {
-							return true;
+						@Override
+						public boolean shouldSkipField(FieldAttributes arg0) {
+							if (arg0.getName().toLowerCase().startsWith("ma")) {
+								return true;
+							}
+							return false;
 						}
-						return false;
-					}
 
-					@Override
-					public boolean shouldSkipClass(Class<?> arg0) {
-						// TODO Auto-generated method stub
-						return false;
-					}
-				}).create();
-		
-		TheLoai tl = gson.fromJson(req.getReader(), TheLoai.class);
-		tl.setMaTheLoai(maTheLoai);
-		new TheLoaiDAO().sua(tl);
-		resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+						@Override
+						public boolean shouldSkipClass(Class<?> arg0) {
+							// TODO Auto-generated method stub
+							return false;
+						}
+					}).create();
+
+			TheLoai tl = gson.fromJson(req.getReader(), TheLoai.class);
+			tl.setMaTheLoai(maTheLoai);
+			new TheLoaiDAO().sua(tl);
+			resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+		} catch (Exception e) {
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
+
 	}
 }

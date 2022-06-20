@@ -71,14 +71,34 @@ public class SanPhamRestService extends HttpServlet {
 		else {
 			if(str.startsWith("/the-loai")) {
 				str = str.replace("/the-loai", "");
-				int maTheLoai = Integer.parseInt(str.substring(1));
-				List<SanPham> sps = new SanPhamDAO().layTatCaSanPhamTheoMaTheLoai(maTheLoai);
-				pr.println(gson.toJson(sps));
+				try {
+					int maTheLoai = Integer.parseInt(str.substring(1));
+					List<SanPham> sps = new SanPhamDAO().layTatCaSanPhamTheoMaTheLoai(maTheLoai);
+					if(sps.size()==0) {
+						response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+					}else {
+						pr.println(gson.toJson(sps));
+					}
+					
+				} catch (Exception e) {
+					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				}
+				
 			}
 			else {
-				int maSanPham = Integer.parseInt(str.substring(1));
-				SanPham sp = new SanPhamDAO().layQuaMa(maSanPham);
-				pr.println(gson.toJson(sp));
+				try {
+					int maSanPham = Integer.parseInt(str.substring(1));
+					SanPham sp = new SanPhamDAO().layQuaMa(maSanPham);
+					if(sp==null) {
+						response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+					}else {
+						pr.println(gson.toJson(sp));
+					}
+					
+				} catch (Exception e) {
+					response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+				}
+				
 			}
 			
 		}
@@ -137,11 +157,23 @@ public class SanPhamRestService extends HttpServlet {
 	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String str = req.getPathInfo();
-		int maSanPham = Integer.parseInt(str.substring(1));
-		resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
-		SanPham sp = new SanPham();
-		sp.setMaSanPham(maSanPham);
-		new SanPhamDAO().xoa(sp);
+		try {
+			int maSanPham = Integer.parseInt(str.substring(1));
+			SanPham sp2 = new SanPhamDAO().layQuaMa(maSanPham);
+			if(sp2==null) {
+				resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			}else {
+				SanPham sp = new SanPham();
+				sp.setMaSanPham(maSanPham);
+				new SanPhamDAO().xoa(sp);
+				resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+			
+			
+		} catch (Exception e) {
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
+		
 	}
 
 	class SanPhamSerializer implements JsonSerializer<SanPham>{

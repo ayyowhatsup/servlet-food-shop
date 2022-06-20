@@ -18,7 +18,9 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import com.group3.DAO.DonHangDAO;
 import com.group3.DAO.NguoiDungDAO;
+import com.group3.Model.DonHang;
 import com.group3.Model.NguoiDung;
 import com.group3.TienIch.MaHoaAES;
 
@@ -54,9 +56,20 @@ public class NguoiDungRestService extends HttpServlet {
 			pr.println(json);
 		}
 		else {
-			int maNguoiDung = Integer.parseInt(str.substring(1));
-			NguoiDung nd = new NguoiDungDAO().layQuaMa(maNguoiDung);
-			pr.println(gson.toJson(nd));
+			try {
+				int maNguoiDung = Integer.parseInt(str.substring(1));
+				
+				NguoiDung nd = new NguoiDungDAO().layQuaMa(maNguoiDung);
+				if(nd==null) {
+					response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+				}else {
+					pr.println(gson.toJson(nd));
+				}
+				
+			} catch (Exception e) {
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+			}
+			
 		}
 		pr.close();
 	}
@@ -77,6 +90,46 @@ public class NguoiDungRestService extends HttpServlet {
 		response.getWriter().println(gson.toJson(nd));
 	}
 	
+	@Override
+	protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String str = req.getPathInfo();
+		try {
+			int maNguoiDung = Integer.parseInt(str.substring(1));
+			NguoiDung nd = new NguoiDung();
+			nd.setMaNguoiDung(maNguoiDung);
+			NguoiDung nd1 = new NguoiDungDAO().layQuaMa(maNguoiDung);
+			if(nd1==null) {
+				resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			}else {
+				resp.setContentType("application/json");
+				new NguoiDungDAO().xoa(nd);
+				resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+			}
+		} catch (Exception e) {
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
+	}
+	
+	@Override
+	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String str = req.getPathInfo();
+		try {
+			int maNguoiDung  = Integer.parseInt(str.substring(1));
+			Gson gson = new GsonBuilder()
+					.registerTypeAdapter(NguoiDung.class, new NguoiDungDeserializer())
+					.setPrettyPrinting()
+					.create();
+			
+			NguoiDung nd = gson.fromJson(req.getReader(), NguoiDung.class);
+			nd.setMaNguoiDung(maNguoiDung);
+			NguoiDungDAO ndd = new NguoiDungDAO();
+			ndd.sua(nd);
+			resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+		} catch (Exception e) {
+			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+		}
+		
+	}
 	class NguoiDungDeserializer implements JsonDeserializer<NguoiDung>{
 
 		@Override

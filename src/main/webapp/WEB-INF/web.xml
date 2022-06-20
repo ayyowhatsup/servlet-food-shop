@@ -305,4 +305,14 @@
     <filter-name>KiemTraAdminFilter</filter-name>
     <url-pattern>/admin/*</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DangNhapRestServlet</display-name>
+    <servlet-name>DangNhapRestServlet</servlet-name>
+    <servlet-class>com.group3.Services.RestService.DangNhapRestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DangNhapRestServlet</servlet-name>
+    <url-pattern>/api/dang-nhap</url-pattern>
+  </servlet-mapping>
 </web-app>
