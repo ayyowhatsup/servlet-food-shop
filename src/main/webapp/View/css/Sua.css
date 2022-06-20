@@ -1,0 +1,25 @@
+@charset "UTF-8";
+#sua{
+	display: none;
+}
+.body{
+	display: flex;
+	flex-direction: row;
+	gap: 100px;
+	margin-left: 10%;
+}
+table, td, th {
+  border: 1px solid;
+  padding: 8px;
+}
+
+table {
+  border-collapse: collapse;
+}
+#n_luu{
+	margin-bottom: 40px;
+}
+form{
+	border: 1px solid black;
+	padding: 10px;
+}

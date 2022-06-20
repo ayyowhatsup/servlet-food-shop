@@ -1,0 +1,120 @@
+:root {
+    --red: #ff3838;
+}
+
+* {
+    font-family: 'Helvetica Neue', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+*::selection {
+    background: var(--red);
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #f7f7f7;
+}
+
+section {
+    padding: 2rem 9%;
+}
+.trang-ca-nhan{
+	margin-top: 100px;	
+}
+
+h1 {
+	font-size: 30px;
+	
+}
+
+.trang-ca-nhan-ben-trong{
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	gap: 100px;
+	align-items: center;
+	flex-direction: column;
+}
+
+
+.noi-dung{
+	display: flex;
+	width: 100%;
+	font-size: 16px;
+	
+}
+li{
+	margin: 10px 0px 10px 0px;
+}
+.nav-bar{
+	width: 30%;
+}
+.nav-bar-tieu-de{
+	margin-bottom: 30px;
+}
+.noi-dung-chinh{
+	width: 70%;
+}
+.noi-dung-chinh-tieu-de{
+	border-bottom: 2px solid black;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	
+}
+.thong-tin-ca-nhan{
+	display: flex;
+	flex-direction: column;
+	gap:10px;
+	margin-bottom: 20px;
+	font-size: 18px;
+	
+}
+.danh-sach-don-hang{
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	align-items: center;
+	margin-top: 20px;
+}
+.don-hang{
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.title{
+	padding-bottom: 5px;
+	border-bottom: 2px solid #e2e2e2;
+	font-weight: bold;
+}
+.ma-don-hang{
+	width: 15%;
+	text-align: center;
+}
+.tg-don-hang{
+	width: 20%;
+	text-align: center;
+}
+.tien-don-hang{
+	width: 25%;
+	text-align: center;
+}
+.trangthai-don-hang{
+	width: 30%;
+	text-align: center;
+}
+

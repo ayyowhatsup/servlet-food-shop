@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/group3/DAO/DonHangDAO.java=UTF-8
+encoding//src/main/java/com/group3/Servlet/DangKySevlet.java=UTF-8
+encoding//src/main/java/com/group3/Servlet/DangNhapServlet.java=UTF-8
+encoding//src/main/java/com/group3/Servlet/ThanhToanServlet.java=UTF-8
+encoding//src/main/java/com/group3/Servlet/ThemVaoGioHangServlet.java=UTF-8
+encoding//src/main/java/com/group3/filter/KiemTraDangNhapFilter.java=UTF-8

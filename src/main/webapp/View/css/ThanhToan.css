@@ -1,0 +1,99 @@
+									:root {
+    --red: #ff3838;
+}
+
+* {
+	font-family: 'Helvetica Neue', sans-serif;
+    outline: none;
+    border: none;
+    text-decoration: none;
+}
+
+*::selection {
+    background: var(--red);
+    color: #fff;
+}
+
+.thanh-toan{
+	display: flex;
+	width: 60%;
+	margin: 0 auto;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.thanh-toan-thong-tin{
+	display: flex;
+	flex-direction: column;
+	width: 50%;	
+	padding-right: 50px;
+	border-right: 1px solid #e2e2e2;
+}
+input{
+	border: none;
+	outline: none;
+	font-size: 16px;
+	width: 100%;
+}
+.input{
+	border: 1px solid #e2e2e2;
+	margin: 20px 0 10px 0;
+	border-radius: 5px;
+	padding: 8px;
+}
+.tieu-de{
+	font-size: 14px;
+	
+}
+.hanh-dong{
+	display: flex;
+	justify-content: space-between;
+	margin-top: 50px;
+	align-items: center;
+}
+.button-thanh-toan{
+	width: 40%;
+	height: 50px;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+.thanh-toan-san-pham{
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+}
+.danh-sach-san-pham{
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e2e2e2;
+	box-sizing: border-box;
+}
+.san-pham{
+	display: flex;
+	flex-direction: row;
+	height: 100px;
+	align-items: center;
+	justify-content: space-between;
+}
+.san-pham-anh img{
+	height: 100%;
+	width: 100%;
+}
+.san-pham-anh{
+	width: 20%;
+}
+.tong-tien{
+	display: flex;
+	flex-direction: column;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #e2e2e2;
+	box-sizing: border-box;
+}
+.tien-thanh-phan{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}

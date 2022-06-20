@@ -1,0 +1,152 @@
+:root {
+	--red: #ff3838;
+}
+
+* {
+	font-family: 'Helvetica Neue', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	text-decoration: none;
+	transition: all .2s linear;
+}
+
+*::selection {
+	background: var(--red);
+	color: #fff;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background: #f7f7f7;
+}
+
+section {
+	padding: 2rem 9%;
+}
+
+.trang-ca-nhan {
+	margin-top: 100px;
+}
+
+h1 {
+	font-size: 30px;
+}
+
+.trang-ca-nhan-ben-trong {
+	width: 80%;
+	margin: 0 auto;
+	display: flex;
+	gap: 100px;
+	align-items: center;
+	flex-direction: column;
+}
+
+.noi-dung {
+	display: flex;
+	width: 100%;
+	font-size: 16px;
+}
+
+li {
+	margin: 10px 0px 10px 0px;
+}
+
+.nav-bar {
+	width: 30%;
+}
+
+.nav-bar-tieu-de {
+	margin-bottom: 30px;
+}
+
+.noi-dung-chinh {
+	width: 70%;
+	font-size: 18px;
+}
+
+.noi-dung-chinh-tieu-de {
+	border-bottom: 2px solid black;
+	padding-bottom: 10px;
+	box-sizing: border-box;
+	margin-bottom: 10px;
+	
+}
+
+.thong-tin-don-hang {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 20px;
+	
+}
+
+.danh-sach-san-pham {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	align-items: center;
+	margin-top: 20px;
+}
+
+.san-pham {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.title {
+	padding-bottom: 5px;
+	border-bottom: 2px solid #e2e2e2;
+	font-weight: bold;
+}
+
+.ten-san-pham {
+	width: 50%;
+}
+
+.don-gia {
+	width: 15%;
+	text-align: center;
+}
+
+.so-luong {
+	width: 15%;
+	text-align: center;
+}
+
+.thanh-tien {
+	width: 15%;
+	text-align: right;
+}
+.tien{
+	margin: 20px 0px 20px 0px;
+	display: flex;
+	flex-direction: row-reverse;
+	
+}
+.tong-tien{
+	width: 30%;
+}
+.tien-thanh-phan{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-bottom: 10px;
+}
+.dia-chi{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	flex-direction: row;
+}
+.thong-tin-title{
+	margin-bottom: 10px;
+}

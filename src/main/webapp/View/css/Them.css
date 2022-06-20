@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+body {
+	padding: 0px;
+	margin: 0px;
+	color: #333366;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+form {
+	width: 500px;
+	border: 1px solid #ccc;
+	margin: 25px;
+	padding: 10px;
+}
+
+form h3 {
+	padding: 0px;
+	margin-top: 0px;
+}
+
+form label {
+	width: 200px;
+	float: left;
+}
+
+form input {
+	margin-bottom: 10px;
+	width: 200px;
+}
+
+form input[type="text"] {
+	margin-bottom: 10px;
+	width: 200px;
+	padding: 5px;
+}
+
+form input[type="submit"] {
+	color: red;
+	margin-top: 40;
+	text-align: center;
+}
