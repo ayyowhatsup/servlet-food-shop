@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>Thêm sản phẩm mới</title>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/View/css/Them.css">
 </head>

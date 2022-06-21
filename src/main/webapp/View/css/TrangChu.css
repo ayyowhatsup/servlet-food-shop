@@ -44,7 +44,7 @@ section {
     color: var(--red);
 }
 
-.btn {
+.nutdathang {
     display: inline-block;
     padding: .8rem 3rem;
     border: .2rem solid var(--red);
@@ -58,7 +58,7 @@ section {
     margin-top: 1rem;
 }
 
-.btn::before {
+.nutdathang::before {
     content: '';
     position: absolute;
     top: 0;
@@ -70,12 +70,12 @@ section {
     z-index: -1;
 }
 
-.btn:hover::before {
+.nutdathang:hover::before {
     width: 100%;
     left: 0;
 }
 
-.btn:hover {
+.nutdathang:hover {
     color: #fff;
 }
 
@@ -89,7 +89,7 @@ section {
     display: none;
 }
 
-.home {
+.trangchuz {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -97,27 +97,27 @@ section {
     align-items: center;
 }
 
-.home .content {
+.trangchuz .noidung {
     flex: 1 1 40rem;
     padding-top: 6.5rem;
 }
 
-.home .image {
+.trangchuz .hinhanh {
     flex: 1 1 40rem;
 }
 
-.home .image img {
+.trangchuz .hinhanh img {
     width: 100%;
     padding: 1rem;
     animation: float 3s linear infinite;
 }
 
-.home .content h3 {
+.trangchuz .noidung h3 {
     font-size: 5rem;
     color: #333;
 }
 
-.home .content p {
+.trangchuz .noidung p {
     font-size: 1.7rem;
     color: #666;
     padding: 1rem 0;

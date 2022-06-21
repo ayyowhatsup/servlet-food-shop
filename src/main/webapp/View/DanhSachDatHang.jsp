@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Chi tiết đơn hàng</title>
 </head>
 <body>
 	<jsp:include page="DauTrangQuanTri.jsp"></jsp:include>

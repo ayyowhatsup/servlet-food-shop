@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Quản lí sản phẩm</title>
 <script type="text/javascript">
 	function doDelete(id) {
 		if (confirm("Đồng ý xóa sản phẩm ")) {

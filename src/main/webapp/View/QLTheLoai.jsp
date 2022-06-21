@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>Quản lí thể loại</title>
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/View/css/Sua.css">
 </head>

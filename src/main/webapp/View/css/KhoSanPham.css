@@ -30,30 +30,30 @@ section {
     padding: 2rem 9%;
 }
 
-.heading {
+.tieudemuc {
     text-align: center;
     font-size: 3.5rem;
     color: #666;
 }
-.gallery{
+.bosuutap{
     margin-top: 5rem;
 }
-.nav-list{
+.danhsachnav{
     list-style-type: none;
     
 }
-.gallery-wrap{
+.bosuutap-wrap{
 	display: flex;
 	justify-content: space-between;
 }
-.gallery-nav{
+.bosuutap-nav{
     border-radius: 1rem;
     border: 0.1px solid black;
     width: 18%; 
     display: inline-block;
     
 }
-.gallery-nav h2{
+.bosuutap-nav h2{
     font-size: 2.5rem;
     color: white;
     background-color: brown;
@@ -61,7 +61,7 @@ section {
     border-radius: 1rem;
     margin-bottom: 2rem;
 }
-.nav-list li{
+.danhsachnav li{
     height: 4rem;
 	color: black;
     font-size: 2rem;
@@ -69,10 +69,10 @@ section {
     padding: 1rem;
     
 }
-.nav-list :last-child{
+.danhsachnav :last-child{
     border-bottom: none;
 }
-.gallery .box-container {
+.bosuutap .danhsachsanphamm {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -80,7 +80,7 @@ section {
     width: 80%;
 }
 
-.gallery .box-container .box {
+.bosuutap .danhsachsanphamm .osanpham {
     height: 25rem;
     width: 23%;
     border: 1rem solid #fff;
@@ -90,7 +90,7 @@ section {
     overflow: hidden;
 }
 
-.gallery .box-container .box img {
+.bosuutap .danhsachsanphamm .osanpham img {
     height: 100%;
     width: 100%;
     object-fit: cover;
@@ -110,7 +110,7 @@ section {
 	justify-content: center;
 }
 
-.gallery .box-container .box .content {
+.bosuutap .danhsachsanphamm .osanpham .ttsanpham {
     position: absolute;
     top: -100%;
     left: 0;
@@ -122,22 +122,22 @@ section {
     text-align: center;
 }
 
-.gallery .box-container .box .content h3 {
+.bosuutap .danhsachsanphamm .osanpham .ttsanpham h3 {
     font-size: 2rem;
     color: #333;
 }
 
-.gallery .box-container .box .content p {
+.bosuutap .danhsachsanphamm .osanpham .ttsanpham p {
     font-size: 1.5rem;
     color: #666;
     padding: 1rem 0;
 }
 
-.gallery .box-container .box:hover .content {
+.bosuutap .danhsachsanphamm .osanpham:hover .ttsanpham {
     top: 0;
 }
 
-.btn {
+.nutdatmua {
     display: inline-block;
     padding: .8rem 3rem;
     border: .2rem solid var(--red);
@@ -151,7 +151,7 @@ section {
     margin-top: 1rem;
 }
 
-.btn::before {
+.nutdatmua::before {
     content: '';
     position: absolute;
     top: 0;
@@ -163,15 +163,15 @@ section {
     z-index: -1;
 }
 
-.btn:hover::before {
+.nutdatmua:hover::before {
     width: 100%;
     left: 0;
 }
 
-.btn:hover {
+.nutdatmua:hover {
     color: #fff;
 }
-.on-selected-active{
+.dang-duoc-lua-chon{
 	background-color: brown;
 	color: white;
 

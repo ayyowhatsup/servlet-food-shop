@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>Quản lí đơn hàng</title>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/View/css/QuanLy.css">
 </head>

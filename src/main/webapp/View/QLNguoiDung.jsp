@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Quản lí người dùng</title>
 <meta charset="UTF-8">
 <script type="text/javascript">
 	function doDelete(id) {

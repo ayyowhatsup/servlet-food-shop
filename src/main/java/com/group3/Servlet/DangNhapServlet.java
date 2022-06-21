@@ -50,6 +50,9 @@ public class DangNhapServlet extends HttpServlet {
 		if(soDienThoai.equals("") || matKhau.equals("") ) {
 			request.setAttribute("mess", "Vui lòng điền đầy đủ các trường!");
 			request.getRequestDispatcher("/View/DangNhap.jsp").forward(request, response);
+		}else if(soDienThoai.length()!=10 || !soDienThoai.matches("[0-9]+")) {
+			request.setAttribute("mess", "Số điện thoại không hợp lệ!");
+			request.getRequestDispatcher("/View/DangNhap.jsp").forward(request, response);
 		}
 		else {
 			//Đăng nhập, kiểm tra tài khoản có tồn tại

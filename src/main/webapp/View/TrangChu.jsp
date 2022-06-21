@@ -24,15 +24,15 @@
 
     <!-- home section starts  -->
 
-	<section class="home" id="home">
+	<section class="trangchuz" id="trangchuz">
 
-		<div class="content">
+		<div class="noidung">
             <h3>Food made with love</h3>
             <p>Refood là trang web thực phẩm sạch uy tín, cam kết đem lại cho gia đình bạn những bữa cơm chất lượng, dinh dưỡng và đảm bảo an toàn!</p>
-            <a href="san-pham" class="btn">Đặt hàng</a>
+            <a href="san-pham" class="nutdathang">Đặt hàng</a>
         </div>
 
-        <div class="image">
+        <div class="hinhanh">
             <img src="<%=request.getContextPath()%>/View/images/home-img.png" alt="">
         </div>
 

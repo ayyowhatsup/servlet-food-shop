@@ -24,22 +24,22 @@
 	<header>
 		<jsp:include page="DauTrang.jsp"></jsp:include>
 	</header>
-	<section class="gallery" id="gallery">
+	<section class="bosuutap" id="bosuutap">
 
-		<h1 class="heading">Sản phẩm</h1>
-		<div class="gallery-wrap">
+		<h1 class="tieudemuc">Sản phẩm</h1>
+		<div class="bosuutap-wrap">
 
 			<c:if test="${tuKhoa!=null}">
 				<h1 class="de-muc-tim-kiem">Kết quả tìm kiếm cho từ khóa '${tuKhoa}'</h1>
 				
 			</c:if>
 			<c:if test="${tuKhoa==null}">
-				<div class="gallery-nav">
-					<ul class="nav-list">
+				<div class="bosuutap-nav">
+					<ul class="danhsachnav">
 						<h2>DANH MỤC</h2>
 						<c:forEach items="${danhSachTheLoai}" var="theLoai">
 							<li
-								class='<c:if test="${theLoai.maTheLoai == mtl}">on-selected-active</c:if>'><i
+								class='<c:if test="${theLoai.maTheLoai == mtl}">dang-duoc-lua-chon</c:if>'><i
 								class="fa fa-arrow-circle-right" aria-hidden="true"></i> <a
 								href="san-pham?maTheLoai=${theLoai.maTheLoai}"> <c:out
 										value="${theLoai.tenTheLoai}"></c:out>
@@ -51,9 +51,9 @@
 
 
 
-			<div class="box-container">
+			<div class="danhsachsanphamm">
 				<c:forEach items="${danhSachSanPham}" var="sanPham">
-					<div class="box">
+					<div class="osanpham">
 						<c:if test="${sanPham.tonKho >0 && sanPham.tonKho<=10}">
 							<div class="tag-so-luong-san-pham">SỐ LƯỢNG CÓ HẠN</div>
 						</c:if>
@@ -61,7 +61,7 @@
 							<div class="tag-so-luong-san-pham">HẾT HÀNG</div>
 						</c:if>
 						<img src="${sanPham.hinhAnh}" alt="">
-						<div class="content">
+						<div class="ttsanpham">
 							<h3>${sanPham.tenSanPham}</h3>
 							<p>${sanPham.mieuTa}</p>
 							<h3>
@@ -71,7 +71,7 @@
 							</h3>
 							<c:if test="${sanPham.tonKho > 0 }">
 								<a href="them-vao-gio-hang?maSanPham=${sanPham.maSanPham}"
-									class="btn">Đặt mua</a>
+									class="nutdatmua">Đặt mua</a>
 							</c:if>
 
 						</div>
